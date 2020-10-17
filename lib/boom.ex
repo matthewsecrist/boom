@@ -6,7 +6,6 @@ defmodule Boom do
   """
 
   alias Boom.Errors
-  import Plug.Conn
 
   Enum.each(Errors.list(), fn {type, {status_code, message}} ->
     @spec unquote(type)(Plug.Conn.t(), String.t() | nil) :: Plug.Conn.t()
@@ -18,14 +17,14 @@ defmodule Boom do
     end
   end)
 
-  defp boom(%Plug.Conn{} = conn, type, message) do
+  defp boom(conn, type, message) do
     {status_code, error} = Errors.get_error_for(type)
 
     with {:ok, body} <- serialize_body(status_code, error, message) do
       conn
-      |> put_resp_content_type("application/json")
-      |> send_resp(status_code, body)
-      |> halt()
+      |> Plug.Conn.put_resp_content_type("application/json")
+      |> Plug.Conn.send_resp(status_code, body)
+      |> Plug.Conn.halt()
     end
   end
 

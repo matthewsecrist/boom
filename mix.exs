@@ -4,7 +4,7 @@ defmodule Boom.MixProject do
   def project do
     [
       app: :boom,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       description: description(),
@@ -13,7 +13,14 @@ defmodule Boom.MixProject do
       name: "Boom",
       source_url: "https://github.com/matthewsecrist/boom",
       homepage_url: "https://github.com/matthewsecrist/boom",
-      test_coverage: [tool: ExCoveralls]
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test,
+        "coveralls.github": :test
+      ]
     ]
   end
 
