@@ -12,7 +12,8 @@ defmodule Boom.MixProject do
       deps: deps(),
       name: "Boom",
       source_url: "https://github.com/matthewsecrist/boom",
-      homepage_url: "https://github.com/matthewsecrist/boom"
+      homepage_url: "https://github.com/matthewsecrist/boom",
+      test_coverage: [tool: ExCoveralls]
     ]
   end
 
