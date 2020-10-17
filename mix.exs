@@ -28,7 +28,7 @@ defmodule Boom.MixProject do
   defp deps do
     [
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.0", only: [:dev, :test]},
+      {:plug_cowboy, "~> 2.0"},
       {:ex_doc, "~> 0.23.0", only: :dev},
       {:inner_cotton, "~> 0.6", only: [:dev, :test]}
     ]
