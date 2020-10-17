@@ -43,10 +43,12 @@ defmodule Boom.Errors do
     not_extended: {510, "Not Extended"},
     network_authentication_required: {511, "Network Authentication Required"}
   }
+  @doc false
   def list do
     @errors
   end
 
+  @doc false
   def get_error_for(name) do
     case Map.fetch(@errors, name) do
       {:ok, {status_code, error_message}} -> {status_code, error_message}

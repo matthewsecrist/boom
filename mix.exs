@@ -27,8 +27,7 @@ defmodule Boom.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.0", only: [:dev, :test]},
       {:ex_doc, "~> 0.23.0", only: :dev},
-      {:credo, "~> 1.1", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 1.0", only: [:dev], runtime: false}
+      {:inner_cotton, "~> 0.6", only: [:dev, :test]}
     ]
   end
 end
