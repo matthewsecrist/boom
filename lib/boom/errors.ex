@@ -50,9 +50,8 @@ defmodule Boom.Errors do
 
   @doc false
   def get_error_for(name) do
-    case Map.fetch(@errors, name) do
-      {:ok, {status_code, error_message}} -> {status_code, error_message}
-      _ -> get_error_for(:internal_service_error)
+    with {:ok, {status_code, error_message}} <- Map.fetch(@errors, name) do
+      {status_code, error_message}
     end
   end
 end
